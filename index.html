@@ -1,406 +1,439 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALL ME KALIL | DJ, Drummer, Producer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #ffffff;
+            --text-muted: #888888;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .edgy-title {
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            line-height: 0.8;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.7rem;
+        }
+
+        .hero-video-placeholder {
+            position: relative;
+            width: 100%;
+            height: 100svh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        #wave-section, #snare-section {
+            height: 40vh;
+            background: #000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        #waveCanvas, #snareCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .session-card {
+            border-bottom: 1px solid #1a1a1a;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        @media (hover: hover) {
+            .session-card:hover {
+                border-bottom: 1px solid #ffffff;
+            }
+        }
+
+        .contact-btn {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 16px 40px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-decoration: none;
+            color: white;
+            min-width: 200px;
+        }
+        
+        @media (hover: hover) {
+            .contact-btn:hover {
+                background: white;
+                color: black;
+                border-color: white;
+                transform: translateY(-2px);
+            }
+        }
+
+        html { -webkit-text-size-adjust: 100%; }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;CALL ME KALIL | DJ, Drummer, Producer&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--bg-color: #0a0a0a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--accent-color: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--text-muted: #888888;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--bg-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--accent-color);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>-webkit-font-smoothing: antialiased;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.edgy-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 900;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: -0.05em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 0.8;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.mono {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'IBM Plex Mono', monospace;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.15em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero-video-placeholder {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>url('https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?q=80&amp;w=2070&amp;auto=format&amp;fit=crop');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-link {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>#wave-section, #snare-section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 40vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-top: 1px solid #1a1a1a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #1a1a1a;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>#waveCanvas, #snareContainer canvas {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hidden {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: none !important;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.fade-in {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeIn 1s ease forwards;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeIn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(15px); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.session-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #1a1a1a;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 1.5rem 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (hover: hover) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.session-card:hover {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border-bottom: 1px solid #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.contact-btn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(255,255,255,0.4);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0,0,0,0.5);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(5px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-width: 200px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (hover: hover) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.contact-btn:hover {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>color: black;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>border-color: white;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>html { -webkit-text-size-adjust: 100%; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Minimal Header --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-10 md:py-10 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mono font-bold text-base md:text-xl cursor-pointer" onclick="showPage('home')"&gt;CALL ME KALIL&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex gap-4 md:gap-12 mono"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="nav-link" onclick="showPage('home')"&gt;Home&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="nav-link" onclick="showPage('about')"&gt;About&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- HOME PAGE CONTENT --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="home-page"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="hero-video-placeholder"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="text-center z-10 px-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mono mb-4 md:mb-6 fade-in opacity-70 text-[10px] md:text-xs"&gt;DJ / Drummer / Producer&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="edgy-title text-6xl sm:text-8xl md:text-[12rem] lg:text-[14rem] fade-in mb-8"&gt;KALIL&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="fade-in" style="animation-delay: 0.5s;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="sms:+15613883735?body=im%20looking%20for%20an%20extremely%20gay%20drummer" class="contact-btn mono"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Contact Me Today</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="absolute bottom-10 flex flex-col items-center opacity-30 hidden md:flex"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="w-[1px] h-10 bg-white mb-2"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mono text-[8px]"&gt;The Pocket&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="wave-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;canvas id="waveCanvas"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="z-10 text-center pointer-events-none px-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="mono text-lg md:text-3xl tracking-[1em] md:tracking-[1.5em] opacity-20"&gt;RHYTHM ARCHITECT&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="py-16 md:py-24 px-6 md:px-24"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex flex-col md:flex-row justify-between items-baseline mb-12 md:mb-16 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="edgy-title text-4xl md:text-7xl"&gt;SESSION&lt;br&gt;WORK&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mono text-zinc-500 text-[10px]"&gt;Notable Drumming &amp; Credits&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-x-20"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="session-card flex justify-between items-end gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="mono text-zinc-600 mb-1 text-[9px]"&gt;Soulpax&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xl md:text-2xl font-bold italic"&gt;Electric Air Studios&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-right shrink-0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-[9px] opacity-60"&gt;Moonbeams&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-[9px] opacity-60"&gt;Postcard Daze&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="session-card flex justify-between items-end gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="mono text-zinc-600 mb-1 text-[9px]"&gt;Clean Cut&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xl md:text-2xl font-bold italic"&gt;Audio Vision Studios&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-right shrink-0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-[9px] opacity-60"&gt;Back Again&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-[9px] opacity-60"&gt;Tropics Ent.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="session-card flex justify-between items-end gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="mono text-zinc-600 mb-1 text-[9px]"&gt;Kayo-man&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xl md:text-2xl font-bold italic"&gt;Circle House Studios&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-right shrink-0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-[9px] opacity-60"&gt;"FDT" Live&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-white text-[9px]"&gt;1.6m views&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="session-card flex justify-between items-end gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="mono text-zinc-600 mb-1 text-[9px]"&gt;Weeks Recording&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="text-xl md:text-2xl font-bold italic"&gt;UM Productions&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="text-right shrink-0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-[9px] opacity-60"&gt;“Cameo” Party&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mono text-[9px] opacity-60"&gt;Promo Vid&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="bg-white text-black py-16 md:py-24 px-6 md:px-24 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">             </span>&lt;h2 class="mono text-[9px] mb-8 md:mb-12 tracking-widest text-center opacity-60"&gt;STAGES CONQUERED&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">             </span>&lt;div class="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-12 md:gap-y-8 text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Miami Heat Arena&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-zinc-300 hidden md:inline"&gt;/&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Okeechobeefest&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-zinc-300 hidden md:inline"&gt;/&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Delilah Miami&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-zinc-300 hidden md:inline"&gt;/&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Miami Beach Bandshell&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-zinc-300 hidden md:inline"&gt;/&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Bayfront Park&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-zinc-300 hidden md:inline"&gt;/&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Gates Hotel SB&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="text-zinc-300 hidden md:inline"&gt;/&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span&gt;Key Biscayne Yacht Club&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">             </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="snare-section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="snareContainer" class="absolute inset-0 w-full h-full"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ABOUT PAGE CONTENT --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="about-page" class="hidden min-h-screen pt-32 md:pt-40 px-6 md:px-24 pb-20"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-6xl mx-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="fade-in"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="mono text-zinc-500 mb-4 text-[10px]"&gt;THE BIOGRAPHY&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h1 class="edgy-title text-5xl md:text-7xl lg:text-9xl mb-8"&gt;I'M A DJ&lt;br&gt;THAT DRUMS&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="space-y-6 text-base md:text-xl text-zinc-400 leading-relaxed font-light"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Coming from Palm Beach County and currently residing in Miami, Kalil Bohannon started drumming at the age of 12, when his passion for music began.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;A few years later, he began producing music and performing on his high school drumline—laying the foundation for a career built on rhythmic precision and technical prowess.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Fast forward to earning a B.A. in Music Business from FIU and collaborating with a wide range of artists; his career now includes cross-country tours, DJing top-tier events across South Florida, and solo vocal releases.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="relative"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Studio" class="grayscale opacity-40 border border-zinc-800 mb-10 w-full aspect-square object-cover"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid grid-cols-2 gap-4 md:gap-8 mb-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="mono text-white mb-2 text-[9px]"&gt;Education&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-zinc-500 text-xs"&gt;FIU - B.A. Music Business&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="mono text-white mb-2 text-[9px]"&gt;Vocals&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p class="text-zinc-500 text-xs"&gt;3 Solo Tracks Released&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="p-6 md:p-8 border border-zinc-800 bg-zinc-900/30"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4 class="mono text-white mb-4 text-[10px]"&gt;Direct Contact&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="sms:+15613883735?body=im%20looking%20for%20an%20extremely%20gay%20drummer" class="text-xl md:text-2xl mb-6 block hover:text-zinc-400 transition underline decoration-zinc-700 underline-offset-8"&gt;(561) 388-3735&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="mailto:kalilbohannon@gmail.com" class="inline-block bg-white text-black px-8 py-3 mono text-[10px] font-bold hover:bg-zinc-200 transition text-center w-full md:w-auto"&gt;Email Me&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="p-10 md:p-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 bg-black text-center md:text-left"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mono text-zinc-600 text-[9px]"&gt;© 2024 CALL ME KALIL&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col md:flex-row gap-4 md:gap-8 mono text-[9px]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="sms:+15613883735?body=im%20looking%20for%20an%20extremely%20gay%20drummer" class="hover:text-white transition"&gt;PH: 561.388.3735&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="mailto:kalilbohannon@gmail.com" class="hover:text-white transition"&gt;kalilbohannon@gmail.com&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function showPage(page) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const home = document.getElementById('home-page');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const about = document.getElementById('about-page');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (page === 'home') {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>home.classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>about.classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>home.classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>about.classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.scrollTo(0, 0);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const waveCanvas = document.getElementById('waveCanvas');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const wCtx = waveCanvas.getContext('2d');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let waves = [</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ amplitude: 35, frequency: 0.005, speed: 0.015, color: 'rgba(255, 255, 255, 0.12)', offset: 0 },</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{ amplitude: 50, frequency: 0.003, speed: 0.008, color: 'rgba(255, 255, 255, 0.06)', offset: 100 }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function resize() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>waveCanvas.width = window.innerWidth;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>waveCanvas.height = waveCanvas.parentElement.offsetHeight;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (renderer &amp;&amp; camera) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const snareContainer = document.getElementById('snareContainer');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>camera.aspect = snareContainer.offsetWidth / snareContainer.offsetHeight;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>camera.updateProjectionMatrix();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>renderer.setSize(snareContainer.offsetWidth, snareContainer.offsetHeight);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function animateWaves() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>wCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>waves.forEach(wave =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wCtx.beginPath();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wCtx.strokeStyle = wave.color;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wCtx.lineWidth = 1;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const scale = window.innerWidth &lt; 768 ? 0.6 : 1;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>for (let x = 0; x &lt; waveCanvas.width; x++) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>const y = waveCanvas.height / 2 + Math.sin(x * wave.frequency + wave.offset) * (wave.amplitude * scale);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (x === 0) wCtx.moveTo(x, y); else wCtx.lineTo(x, y);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wCtx.stroke();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>wave.offset += wave.speed;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>requestAnimationFrame(animateWaves);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>let scene, camera, renderer, snareGroup;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function initThree() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById('snareContainer');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!container) return;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>scene = new THREE.Scene();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetHeight, 0.1, 1000);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>camera.position.z = 10;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderer.setSize(container.offsetWidth, container.offsetHeight);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>container.appendChild(renderer.domElement);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>snareGroup = new THREE.Group();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0x444444, wireframe: true, transparent: true, opacity: 0.4 });</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const stickMaterial = new THREE.MeshBasicMaterial({ color: 0x888888, wireframe: true, transparent: true, opacity: 0.6 });</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const shell = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, 1.4, 16), wireframeMaterial);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>snareGroup.add(shell);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const topHead = new THREE.Mesh(new THREE.CircleGeometry(2, 16), wireframeMaterial);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>topHead.rotation.x = -Math.PI / 2;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>topHead.position.y = 0.71;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>snareGroup.add(topHead);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const stickGeo = new THREE.CylinderGeometry(0.04, 0.08, 5, 8);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const stick1 = new THREE.Mesh(stickGeo, stickMaterial);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>stick1.rotation.z = Math.PI / 4;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>stick1.position.set(-1.5, 1.8, 0);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const stick2 = new THREE.Mesh(stickGeo, stickMaterial);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>stick2.rotation.z = -Math.PI / 4;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>stick2.position.set(1.5, 1.8, 0);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>snareGroup.add(stick1, stick2);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>scene.add(snareGroup);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animateThree();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function animateThree() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>requestAnimationFrame(animateThree);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (snareGroup) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>snareGroup.rotation.y += 0.005;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>snareGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>renderer.render(scene, camera);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.addEventListener('resize', resize);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.addEventListener('load', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resize();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animateWaves();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>initThree();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <!-- Minimal Header -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-10 md:py-10 flex justify-between items-center bg-gradient-to-b from-black/90 to-transparent">
+        <div class="mono font-bold text-base md:text-xl cursor-pointer" onclick="showPage('home')">CALL ME KALIL</div>
+        <div class="flex gap-4 md:gap-12 mono">
+            <span class="nav-link" onclick="showPage('home')">Home</span>
+            <span class="nav-link" onclick="showPage('about')">About</span>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE CONTENT -->
+    <div id="home-page">
+        <!-- Hero Section -->
+        <section class="hero-video-placeholder">
+            <div class="text-center z-10 px-6">
+                <p class="mono mb-4 md:mb-6 fade-in opacity-70 text-[10px] md:text-xs">DJ / Drummer / Producer</p>
+                <h1 class="edgy-title text-6xl sm:text-8xl md:text-[12rem] lg:text-[14rem] fade-in mb-8">KALIL</h1>
+                <div class="fade-in" style="animation-delay: 0.5s;">
+                    <a href="sms:+15613883735?body=im%20looking%20for%20an%20extremely%20gay%20drummer" class="contact-btn mono">
+                        Contact Me Today
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-10 flex flex-col items-center opacity-30 hidden md:flex">
+                <div class="w-[1px] h-10 bg-white mb-2"></div>
+                <p class="mono text-[8px]">The Pocket</p>
+            </div>
+        </section>
+
+        <!-- Abstract Wave Section -->
+        <section id="wave-section">
+            <canvas id="waveCanvas"></canvas>
+            <div class="z-10 text-center pointer-events-none px-6">
+                <h2 class="mono text-lg md:text-3xl tracking-[1em] md:tracking-[1.5em] opacity-20">RHYTHM ARCHITECT</h2>
+            </div>
+        </section>
+
+        <!-- Session Work Section -->
+        <section class="py-16 md:py-24 px-6 md:px-24">
+            <div class="flex flex-col md:flex-row justify-between items-baseline mb-12 md:mb-16 gap-4">
+                <h2 class="edgy-title text-4xl md:text-7xl">SESSION<br>WORK</h2>
+                <p class="mono text-zinc-500 text-[10px]">Notable Drumming & Credits</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20">
+                <div class="session-card flex justify-between items-end gap-4">
+                    <div>
+                        <h4 class="mono text-zinc-600 mb-1 text-[9px]">Soulpax</h4>
+                        <p class="text-xl md:text-2xl font-bold italic">Electric Air Studios</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="mono text-[9px] opacity-60">Moonbeams</p>
+                        <p class="mono text-[9px] opacity-60">Postcard Daze</p>
+                    </div>
+                </div>
+
+                <div class="session-card flex justify-between items-end gap-4">
+                    <div>
+                        <h4 class="mono text-zinc-600 mb-1 text-[9px]">Clean Cut</h4>
+                        <p class="text-xl md:text-2xl font-bold italic">Audio Vision Studios</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="mono text-[9px] opacity-60">Back Again</p>
+                        <p class="mono text-[9px] opacity-60">Tropics Ent.</p>
+                    </div>
+                </div>
+
+                <div class="session-card flex justify-between items-end gap-4">
+                    <div>
+                        <h4 class="mono text-zinc-600 mb-1 text-[9px]">Kayo-man</h4>
+                        <p class="text-xl md:text-2xl font-bold italic">Circle House Studios</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="mono text-[9px] opacity-60">"FDT" Live</p>
+                        <p class="mono text-white text-[9px]">1.6m views</p>
+                    </div>
+                </div>
+
+                <div class="session-card flex justify-between items-end gap-4">
+                    <div>
+                        <h4 class="mono text-zinc-600 mb-1 text-[9px]">Weeks Recording</h4>
+                        <p class="text-xl md:text-2xl font-bold italic">UM Productions</p>
+                    </div>
+                    <div class="text-right shrink-0">
+                        <p class="mono text-[9px] opacity-60">“Cameo” Party</p>
+                        <p class="mono text-[9px] opacity-60">Promo Vid</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Places Performed -->
+        <section class="bg-white text-black py-16 md:py-24 px-6 md:px-24">
+             <h2 class="mono text-[9px] mb-8 md:mb-12 tracking-widest text-center opacity-60">STAGES CONQUERED</h2>
+             <div class="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-12 md:gap-y-8 text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter text-center">
+                <span>Miami Heat Arena</span>
+                <span class="text-zinc-300 hidden md:inline">/</span>
+                <span>Okeechobeefest</span>
+                <span class="text-zinc-300 hidden md:inline">/</span>
+                <span>Delilah Miami</span>
+                <span class="text-zinc-300 hidden md:inline">/</span>
+                <span>Miami Beach Bandshell</span>
+                <span class="text-zinc-300 hidden md:inline">/</span>
+                <span>Bayfront Park</span>
+                <span class="text-zinc-300 hidden md:inline">/</span>
+                <span>Gates Hotel SB</span>
+                <span class="text-zinc-300 hidden md:inline">/</span>
+                <span>Key Biscayne Yacht Club</span>
+             </div>
+        </section>
+
+        <!-- 3D Snare Section -->
+        <section id="snare-section">
+            <div id="snareContainer" class="absolute inset-0"></div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE CONTENT -->
+    <div id="about-page" class="hidden min-h-screen pt-32 md:pt-40 px-6 md:px-24 pb-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
+                <div class="fade-in">
+                    <h2 class="mono text-zinc-500 mb-4 text-[10px]">THE BIOGRAPHY</h2>
+                    <h1 class="edgy-title text-5xl md:text-7xl lg:text-9xl mb-8">I'M A DJ<br>THAT DRUMS</h1>
+                    <div class="space-y-6 text-base md:text-xl text-zinc-400 leading-relaxed font-light">
+                        <p>
+                            Coming from Palm Beach County and currently residing in Miami, Kalil Bohannon started drumming at the age of 12, when his passion for music began. 
+                        </p>
+                        <p>
+                            A few years later, he began producing music and performing on his high school drumline—laying the foundation for a career built on rhythmic precision and technical prowess.
+                        </p>
+                        <p>
+                            Fast forward to earning a B.A. in Music Business from FIU and collaborating with a wide range of artists; his career now includes cross-country tours, DJing top-tier events across South Florida, and solo vocal releases.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop" alt="Studio" class="grayscale opacity-40 border border-zinc-800 mb-10 w-full aspect-square object-cover">
+                    <div class="grid grid-cols-2 gap-4 md:gap-8 mb-10">
+                        <div>
+                            <h4 class="mono text-white mb-2 text-[9px]">Education</h4>
+                            <p class="text-zinc-500 text-xs">FIU - B.A. Music Business</p>
+                        </div>
+                        <div>
+                            <h4 class="mono text-white mb-2 text-[9px]">Vocals</h4>
+                            <p class="text-zinc-500 text-xs">3 Solo Tracks Released</p>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 border border-zinc-800 bg-zinc-900/30">
+                        <h4 class="mono text-white mb-4 text-[10px]">Direct Contact</h4>
+                        <a href="sms:+15613883735?body=im%20looking%20for%20an%20extremely%20gay%20drummer" class="text-xl md:text-2xl mb-6 block hover:text-zinc-400 transition underline decoration-zinc-700 underline-offset-8">(561) 388-3735</a>
+                        <a href="mailto:kalilbohannon@gmail.com" class="inline-block bg-white text-black px-8 py-3 mono text-[10px] font-bold hover:bg-zinc-200 transition text-center w-full md:w-auto">Email Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minimal Footer -->
+    <footer class="p-10 md:p-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 bg-black text-center md:text-left">
+        <div class="mono text-zinc-600 text-[9px]">© 2024 CALL ME KALIL</div>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 mono text-[9px]">
+            <a href="sms:+15613883735?body=im%20looking%20for%20an%20extremely%20gay%20drummer" class="hover:text-white transition">PH: 561.388.3735</a>
+            <a href="mailto:kalilbohannon@gmail.com" class="hover:text-white transition">kalilbohannon@gmail.com</a>
+        </div>
+    </footer>
+
+    <script>
+        // --- Navigation Logic ---
+        function showPage(page) {
+            const home = document.getElementById('home-page');
+            const about = document.getElementById('about-page');
+            
+            if (page === 'home') {
+                home.classList.remove('hidden');
+                about.classList.add('hidden');
+                window.scrollTo(0, 0);
+            } else {
+                home.classList.add('hidden');
+                about.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // --- Wave Animation Logic ---
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let waves = [
+            { amplitude: 35, frequency: 0.005, speed: 0.015, color: 'rgba(255, 255, 255, 0.12)', offset: 0 },
+            { amplitude: 50, frequency: 0.003, speed: 0.008, color: 'rgba(255, 255, 255, 0.06)', offset: 100 },
+            { amplitude: 20, frequency: 0.012, speed: 0.025, color: 'rgba(255, 255, 255, 0.08)', offset: 250 }
+        ];
+
+        function animateWaves() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            waves.forEach(wave => {
+                ctx.beginPath();
+                ctx.strokeStyle = wave.color;
+                ctx.lineWidth = 1;
+                const ampScale = window.innerWidth < 768 ? 0.6 : 1;
+                for (let x = 0; x < canvas.width; x++) {
+                    const y = canvas.height / 2 + Math.sin(x * wave.frequency + wave.offset) * (wave.amplitude * ampScale) + Math.cos(x * 0.002 + wave.offset) * (wave.amplitude / 1.5 * ampScale);
+                    if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+                wave.offset += wave.speed;
+            });
+            requestAnimationFrame(animateWaves);
+        }
+
+        // --- Three.js Snare Drum Logic ---
+        let scene, camera, renderer, snareGroup;
+
+        function initThree() {
+            const container = document.getElementById('snareContainer');
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+            camera.position.z = 10;
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            snareGroup = new THREE.Group();
+
+            const wireframeMaterial = new THREE.MeshBasicMaterial({ color: 0x444444, wireframe: true, transparent: true, opacity: 0.4 });
+            const stickMaterial = new THREE.MeshBasicMaterial({ color: 0x888888, wireframe: true, transparent: true, opacity: 0.6 });
+
+            // Snare Shell
+            const shellGeo = new THREE.CylinderGeometry(2, 2, 1.4, 16);
+            const shell = new THREE.Mesh(shellGeo, wireframeMaterial);
+            snareGroup.add(shell);
+
+            // Drum Head (Top)
+            const headGeo = new THREE.CircleGeometry(2, 16);
+            const topHead = new THREE.Mesh(headGeo, wireframeMaterial);
+            topHead.rotation.x = -Math.PI / 2;
+            topHead.position.y = 0.71;
+            snareGroup.add(topHead);
+
+            // Rims (Top & Bottom)
+            const rimGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.2, 16, 1, true);
+            const topRim = new THREE.Mesh(rimGeo, wireframeMaterial);
+            topRim.position.y = 0.7;
+            const bottomRim = new THREE.Mesh(rimGeo, wireframeMaterial);
+            bottomRim.position.y = -0.7;
+            snareGroup.add(topRim, bottomRim);
+
+            // Lugs
+            for(let i = 0; i < 8; i++) {
+                const angle = (i / 8) * Math.PI * 2;
+                const lugGeo = new THREE.CylinderGeometry(0.05, 0.05, 1.4, 4);
+                const lug = new THREE.Mesh(lugGeo, wireframeMaterial);
+                lug.position.x = Math.cos(angle) * 2.05;
+                lug.position.z = Math.sin(angle) * 2.05;
+                snareGroup.add(lug);
+            }
+
+            // Drumsticks
+            const stickGroup = new THREE.Group();
+            const stickGeo = new THREE.CylinderGeometry(0.04, 0.08, 5, 8);
+            
+            const stick1 = new THREE.Mesh(stickGeo, stickMaterial);
+            stick1.rotation.z = Math.PI / 4;
+            stick1.position.set(-1.5, 1.8, 0);
+            
+            const stick2 = new THREE.Mesh(stickGeo, stickMaterial);
+            stick2.rotation.z = -Math.PI / 4;
+            stick2.position.set(1.5, 1.8, 0);
+            
+            stickGroup.add(stick1, stick2);
+            snareGroup.add(stickGroup);
+
+            scene.add(snareGroup);
+
+            // Responsive Resize
+            window.addEventListener('resize', () => {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            });
+        }
+
+        function animateSnare() {
+            requestAnimationFrame(animateSnare);
+            if(snareGroup) {
+                snareGroup.rotation.y += 0.005;
+                snareGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.15; // Gentle tilt
+            }
+            renderer.render(scene, camera);
+        }
+
+        window.onload = function() {
+            animateWaves();
+            initThree();
+            animateSnare();
+        };
+    </script>
 </body>
 </html>
